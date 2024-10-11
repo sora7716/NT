@@ -32,10 +32,10 @@ void Serve() {
 	//accept関数で接続を受け入れる
 	printf("acceptで待機します");
 	s = accept(listen_s, (struct sockaddr*)&saddr, &fromlen);
+	printf("accept関数成功です\n");
 	while (1) {
 		int nRcv;
 		char szBuf[1024];
-		printf("accept関数成功です\n");
 
 		//recv関数でデータを受信
 		nRcv = recv(s, szBuf, sizeof(szBuf) - 1, 0);
@@ -86,8 +86,8 @@ void Client() {
 		closesocket(s);
 		return;
 	}
+	printf("サーバーと接続できました\n");
 	while (1) {
-		printf("サーバーと接続できました\n");
 		int nRcv;
 		char szBuf[1024];
 
